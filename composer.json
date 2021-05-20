@@ -1,0 +1,26 @@
+{
+    "name": "cristianvisentini/api",
+    "description": "Criacao de uma api simples",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cristian Visentini",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        },
+        "files": [
+            "config.php"
+        ]
+    },
+    "require": {
+        
+    }
+}
