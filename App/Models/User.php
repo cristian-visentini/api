@@ -34,4 +34,20 @@ class User{
             throw new \Exception('Nenhum usuario foi encontrado');
         }
     }
+
+    public static function insert($data){
+        $pdo = new \PDO(DBDRIVE.':host='.DBHOST.';dbname='.DBNAME, DBUSER, DBPASS);
+
+        $sql = $pdo->prepare('INSERT INTO '.self::$table.' (name, email, password) VALUES (:name, :email :password)');
+
+        $sql->bindValue(':name', $data['name']);
+        $sql->bindValue(':email', $data['email']);
+        $sql->bindValue(':password', password_hash($data['password'], PASSWORD_DEFAULT));
+
+        if($sql->rowCount()>0){
+            return 'Usuario inserido com sucesso!';
+        }else{
+            throw new \Exception('Falha ao inserir novo usuario');
+        }
+    }
 }

@@ -15,7 +15,7 @@ class UserService{
     }
     
     public function post(){
-
+        User::insert($_POST);
     }
 
     public function update(){
